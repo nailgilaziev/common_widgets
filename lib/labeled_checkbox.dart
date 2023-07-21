@@ -4,15 +4,15 @@ import 'package:flutter/material.dart';
 
 class LabeledCheckbox extends StatelessWidget {
   const LabeledCheckbox({
-    Key key,
-    this.value,
-    this.title,
+    Key? key,
+    required this.value,
+    required this.title,
     this.onChanged,
   }) : super(key: key);
 
   final bool value;
   final String title;
-  final ValueChanged<bool> onChanged;
+  final ValueChanged<bool?>? onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,9 @@ class LabeledCheckbox extends StatelessWidget {
           value: value,
           onChanged: onChanged,
         ),
-        Expanded(child: Text(title)),
+        Expanded(
+          child: Text(title),
+        ),
       ],
     );
   }
